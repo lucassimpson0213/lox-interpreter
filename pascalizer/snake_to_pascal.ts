@@ -135,12 +135,25 @@ export function pascalizeArray(pascaltipo: PascalType) {
     let { linesArray } = pascaltipo;
     let lines = linesArray.map((line: string): string => {
 
-        let trimmedString = line.trim().split("_") ?? "no underscore";
+        let trimmedString = line.trim().split("_");
 
+
+        const isSupport = line.indexOf("_");
+
+
+        if (isSupport === -1) {
+            console.log("single word support on")
+            return line.charAt(0).toUpperCase() + line.slice(1);
+        }
+
+
+        console.log("trimmed string", trimmedString);
 
         let replacedString = trimmedString.map((word) => {
-
-            return word.charAt(0).toUpperCase() + word?.slice(1)
+            //handle all uppercase letters
+            //
+            let lowerword = word.toLowerCase();
+            return lowerword.charAt(0).toUpperCase() + lowerword?.slice(1)
         })
 
         console.log("replaced string: ", replacedString);
