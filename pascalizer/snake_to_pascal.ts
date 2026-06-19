@@ -93,8 +93,10 @@ async function getFileLines() {
 
 
     //write final modified file with corrected lines
-
-
+    console.log("\n\n\n")
+    console.log("joined array")
+    console.log(wholeFileArray.join("\n"))
+    console.log("\n\n\n\n")
     await Bun.write(file, wholeFileArray.join("\n"));
 }
 
